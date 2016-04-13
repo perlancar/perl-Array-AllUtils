@@ -74,6 +74,8 @@ See an illustration in L<Bencher::Scenario::PERLANCAR::In>.
 
 =head2 first
 
+=head2 firstidx
+
 
 =head1 SEE ALSO
 
