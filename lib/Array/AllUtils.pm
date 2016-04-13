@@ -53,11 +53,14 @@ sub firstidx(&$) {
 
 =head1 SYNOPSIS
 
- use Array::AllUtils qw(first);
+ use Array::AllUtils qw(
+     first firstidx
+ );
 
  my @ary = (1..20);
 
- $elem = first { defined and $_ % 2 } $ary;
+ my $elem = first    { defined and $_ % 2 == 0 } $ary; # -> 2
+ my $idx  = firstidx { defined and $_ % 5 == 0 } $ary; # -> 4
 
 
 =head1 DESCRIPTION
