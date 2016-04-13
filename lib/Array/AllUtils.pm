@@ -42,7 +42,9 @@ sub first(&$) {
 
  use Array::AllUtils qw(first);
 
- my $elem = first { defined and $_ eq 'foo' } $ary;
+ my @ary = (1..20);
+
+ $elem = first { defined and $_ % 2 } $ary;
 
 
 =head1 DESCRIPTION
@@ -50,7 +52,9 @@ sub first(&$) {
 B<PURELY EXPERIMENTAL AND CURRENTLY INCOMPLETE.>
 
 This module provides functions like those provided by L<List::Util> and
-L<List::MoreUtils> but the list is passed as arrayref.
+L<List::MoreUtils> but the list is passed as arrayref, to avoid the cost of
+argument copying which can be significant when the size of the list is large.
+See an illustration in L<Bencher::Scenario::PERLANCAR::In>.
 
 
 =head1 FUNCTIONS
