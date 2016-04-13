@@ -11,6 +11,7 @@ use warnings;
 require Exporter;
 our @EXPORT_OK = qw(
                        first
+                       firstidx
                );
 
 sub import {
@@ -34,6 +35,18 @@ sub first(&$) {
     undef;
 }
 # END_BLOCK: first
+
+# BEGIN_BLOCK: firstidx
+sub firstidx(&$) {
+    my $code = shift;
+    my $i = 0;
+    for (@{$_[0]}) {
+        return $i if $code->($_);
+        $i++;
+    }
+    -1;
+}
+# END_BLOCK: firstidx
 
 1;
 # ABSTRACT: Like List::Util & List::MoreUtils but for array(ref)
